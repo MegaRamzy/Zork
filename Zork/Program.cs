@@ -12,7 +12,7 @@ namespace Zork
     //    WEST,
     //    UNKNOWN
     //}
- 
+
     class Program
     {
         static void Main(string[] args)
