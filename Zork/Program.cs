@@ -10,7 +10,7 @@ namespace Zork
         {
             get
             {
-                return Rooms[Location.Row, Location.Column];
+                return Rooms[LocationColumn];
             }
         }
 
@@ -62,12 +62,12 @@ namespace Zork
             bool movePossible = true;
             switch (command)
             {
-                case Commands.EAST when Location.Column < Rooms.GetLength(1) - 1:
-                    Location.Column++;
+                case Commands.EAST when LocationColumn < Rooms.GetLength(0) - 1:
+                    LocationColumn++;
                     break;
 
-                case Commands.WEST when Location.Column > 0:
-                    Location.Column--;
+                case Commands.WEST when LocationColumn > 0:
+                    LocationColumn--;
                     break;
 
                 case Commands.NORTH:
@@ -85,11 +85,11 @@ namespace Zork
 
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKNOWN;
 
-        private static readonly string[,] Rooms =
+        private static readonly string[] Rooms =
         {
-            {"Forest", "West of House", "Behind House", "Clearing", "Canyon View" },
+             "Forest", "West of House", "Behind House", "Clearing", "Canyon View" 
         };
 
-        private static (int Row, int Column) Location = (0, 1);
+        private static int LocationColumn = 1;
     }
 }
