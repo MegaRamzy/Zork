@@ -8,6 +8,8 @@ namespace Zork
     {
         public World World { get; }
 
+        public int Moves { get; set; }
+
         [JsonIgnore]
         public Room Location { get; private set; }
 
