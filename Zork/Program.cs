@@ -14,9 +14,8 @@ namespace Zork
             const string defaultGameFilename = "Zork.json";
             string gameFilename = (args.Length > 0 ? args[(int)CommandLineArguments.GameFilename] : defaultGameFilename);
 
-            Game game = Game.Load(gameFilename);
+            Game.Start(gameFilename);
             Console.WriteLine("Welcome to Zork!");
-            game.Run();
             Console.WriteLine("Thank you for playing!");
         }
 
